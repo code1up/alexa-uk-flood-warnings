@@ -7,10 +7,37 @@ const sinon = require('sinon');
 chai.use(chaiAsPromised);
 chai.should();
 
-const FloodAlertService = require('../src/flood-alert-service.js')
+const JsonService = require('../src/json-service.js')
 
-describe('flood-alert-service', () => {
-    describe('#getFloodAlerts()', () => {
+// should fetch from URL
+// should reject when request error
+
+describe('JsonService', () => {
+    describe('#get()', () => {
+        it('should fetch from URL', (done) => {
+            // arrange
+            const expectedUrl = 'http://example.com'; 
+            let actualUrl = null; 
+
+            const options = {
+                url: expectedUrl,
+                fetch: url => Promise.resolve((actualUrl = url, response))
+            };
+
+            const response = {
+                json: value => value
+            };
+
+            // act
+            const service = new JsonService(options);
+            const promise = service.get();
+
+            // assert
+            promise.should.eventually.be.fulfilled.then(() => {
+                actualUrl.should.equal(expectedUrl);
+            }).should.notify(done);
+        });
+        
         it('should convert raw response to JSON', () => {
             // arrange
             const options = {
@@ -24,8 +51,8 @@ describe('flood-alert-service', () => {
             };
 
             // act
-            const service = new FloodAlertService(options);
-            const promise = service.getFloodAlerts();
+            const service = new JsonService(options);
+            const promise = service.get();
 
             // assert
             return promise.should.eventually.equal(expectedValue);
@@ -46,8 +73,8 @@ describe('flood-alert-service', () => {
             const expectedValue = options.parse(initialValue);
 
             // act
-            const service = new FloodAlertService(options);
-            const promise = service.getFloodAlerts();
+            const service = new JsonService(options);
+            const promise = service.get();
 
             // assert
             return promise.should.eventually.equal(expectedValue);
@@ -69,8 +96,8 @@ describe('flood-alert-service', () => {
             const resolve = value => expectedValue; 
 
             // act
-            const service = new FloodAlertService(options);
-            const promise = service.getFloodAlerts(resolve);
+            const service = new JsonService(options);
+            const promise = service.get(resolve);
 
             // assert
             return promise.should.eventually.equal(expectedValue);
