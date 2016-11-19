@@ -1,0 +1,11 @@
+{
+  "name": "alexa-uk-flood-warnings",
+  "version": "1.0.0",
+  "description": "Alexa Skill - UK Flood Warnings",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Alan Gorton",
+  "license": "ISC"
+}
