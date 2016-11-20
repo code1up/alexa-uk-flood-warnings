@@ -53,7 +53,7 @@ describe('CountySlotModel', () => {
             tells.should.have.length(0);
         });
 
-        it('should return tell when county is not understood', () => {
+        it('should return one tell when county is not understood', () => {
             // arrange
             const slot = {
                 value: ''
