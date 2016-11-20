@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "lint": "eslint test/"
+    "lint": "eslint test/ src/"
   },
   "author": "Alan Gorton",
   "license": "ISC",
