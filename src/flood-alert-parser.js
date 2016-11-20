@@ -8,19 +8,18 @@ FloodAlertParser.prototype.parse = function (response) {
         return [];
     }
 
-    const allRiversOrSeas = _.reduce(response.items, function (result, item) {
-        const riverOrSea = item.floodArea.riverOrSea;
-        const riversOrSeas = riverOrSea.split(', ');
+    const all = _.reduce(response.items, function (result, item) {
+        const riversOrSeas = item.floodArea.riverOrSea.split(', ');
 
         Array.prototype.push.apply(result, riversOrSeas);
 
         return result;
     }, []);
 
-    const sortedRiversOrSeas = _.sortBy(allRiversOrSeas);
-    const uniqueRiversOrSeas = _.sortedUniq(sortedRiversOrSeas);
+    const sorted = _.sortBy(all);
+    const unique = _.sortedUniq(sorted);
 
-    return uniqueRiversOrSeas;
+    return unique;
 };
 
 module.exports = FloodAlertParser;
