@@ -1,3 +1,5 @@
+'use strict';
+
 function SlotModel(slot) {
     this._slot = slot;
 }

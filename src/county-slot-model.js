@@ -1,12 +1,16 @@
 const SlotModel = require('./slot-model');
+const SpeechModel = require('./speech-model');
 
 const CountySlotModel = function (slot) {
     SlotModel.call(this, slot);
+    
+    this._speechModel = new SpeechModel();
 };
 
 CountySlotModel.prototype = Object.create(SlotModel.prototype);
 
 CountySlotModel.prototype.understood = function () {
+    // TODO: move simplest case to SlotModel
     return !!this.value();
 };
 
@@ -16,7 +20,7 @@ CountySlotModel.prototype.tells = function () {
     }
 
     return [
-        'Looks like I don\`t know or didn\'t hear the county you said. Please try again.'
+        this._speechModel.didNotUnderstandCounty()
     ];
 };
 
