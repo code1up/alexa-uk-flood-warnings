@@ -1,0 +1,39 @@
+{
+    "@context": "http://environment.data.gov.uk/flood-monitoring/meta/context.jsonld",
+    "meta": {
+        "publisher": "Environment Agency",
+        "licence": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "documentation": "http://environment.data.gov.uk/flood-monitoring/doc/reference",
+        "version": "0.7",
+        "comment": "Status: Beta service",
+        "hasFormat": [
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.csv?county=kent",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.rdf?county=kent",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.ttl?county=kent",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.html?county=kent"
+        ]
+    },
+    "items": [
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98683",
+            "description": "Rivers Eden & Eden Brook Area",
+            "eaAreaName": "Kent and South London",
+            "eaRegionName": "South East",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/064WAF324",
+                "county": "Kent",
+                "notation": "064WAF324",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/064WAF324/polygon",
+                "riverOrSea": "Eden, Eden Brook"
+            },
+            "floodAreaID": "064WAF324",
+            "isTidal": false,
+            "message": "Heavy rainfall overnight has caused river levels in the Rivers Eden and Eden Brook to rise this morning, especially in the River Eden around Haxted Mill. Some flooding onto roads and fields is expected. River levels should stop rising through Sunday, but further rainfall is forecast for Sunday night. We are not expecting property flooding.",
+            "severity": "Flood Alert",
+            "severityLevel": 3,
+            "timeMessageChanged": "2016-11-20T09:06:00",
+            "timeRaised": "2016-11-20T09:06:00",
+            "timeSeverityChanged": "2016-11-20T09:06:00"
+        }
+    ]
+}

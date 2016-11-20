@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Alexa Skill - UK Flood Warnings",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code1up/alexa-uk-flood-warnings.git"
+  },
   "scripts": {
     "test": "mocha",
     "lint": "eslint test/"
@@ -12,6 +16,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "lodash": "^4.17.2",
     "mocha": "^3.1.2",
     "node-fetch": "^1.6.3",
     "sinon": "^1.17.6"

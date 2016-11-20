@@ -1,0 +1,207 @@
+{
+    "@context": "http://environment.data.gov.uk/flood-monitoring/meta/context.jsonld",
+    "meta": {
+        "publisher": "Environment Agency",
+        "licence": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "documentation": "http://environment.data.gov.uk/flood-monitoring/doc/reference",
+        "version": "0.7",
+        "comment": "Status: Beta service",
+        "hasFormat": [
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.csv?county=somerset",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.rdf?county=somerset",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.ttl?county=somerset",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.html?county=somerset"
+        ]
+    },
+    "items": [
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98595",
+            "description": "Exmoor Rivers",
+            "eaAreaName": "Devon",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/113WAFTW05",
+                "county": "Devon, Somerset",
+                "notation": "113WAFTW05",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/113WAFTW05/polygon",
+                "riverOrSea": "River Barle, River Exe, River Lyn, River Mole, River Bray"
+            },
+            "floodAreaID": "113WAFTW05",
+            "isTidal": false,
+            "message": "Rainfall from the last 48 hours has resulted in the ground being very saturated. We are expecting heavy bands of rain to pass through the area, starting around 5PM Saturday 19th November. The rain will intensify from 9PM, and eventually reduce by 2AM Sunday Morning. This may lead to flooding of low lying roads and fields. The rain should clear the area by 7AM Sunday Morning, with no significant rainfall until late Sunday Evening. The Environment Agency will monitor the situation and update when required.",
+            "severity": "Flood Alert",
+            "severityLevel": 3,
+            "timeMessageChanged": "2016-11-19T15:54:00",
+            "timeRaised": "2016-11-19T15:54:00",
+            "timeSeverityChanged": "2016-11-19T15:54:00"
+        },
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98613",
+            "description": "West Somerset Streams",
+            "eaAreaName": "North Wessex",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFTWSS",
+                "county": "Somerset",
+                "notation": "112WAFTWSS",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFTWSS/polygon",
+                "riverOrSea": "Horner Water, River Aller, Washford River, Hawkcombe Stream, Monksilver Stream, Doniford Stream"
+            },
+            "floodAreaID": "112WAFTWSS",
+            "isTidal": false,
+            "message": "Up to 20 mm of rainfall is forecast overnight on Saturday 19/11/2016 through to Sunday morning 20/11/2016.\n\nRiver levels on the Hawkcombe Stream at Porlock, Horner Water at West Luccombe, River Aller at Allerford, Monksilver Stream at Williton, Doniford Stream at Sampford Brett and Doniford Stream at Doniford will respond to this rainfall however, the River Washford is forecast to reach peak levels of 0.55 m at the Beggearn Huish gauge early on Sunday morning and triggering a Flood Alert for the West Somerset catchment.",
+            "severity": "Flood Alert",
+            "severityLevel": 3,
+            "timeMessageChanged": "2016-11-19T18:17:00",
+            "timeRaised": "2016-11-19T18:17:00",
+            "timeSeverityChanged": "2016-11-19T18:17:00"
+        },
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98622",
+            "description": "River Chew Catchment",
+            "eaAreaName": "North Wessex",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFTRCC",
+                "county": "Bath & NE Somerset",
+                "notation": "112WAFTRCC",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFTRCC/polygon",
+                "riverOrSea": "River Chew, Chew Stoke Stream, Winford Brook"
+            },
+            "floodAreaID": "112WAFTRCC",
+            "isTidal": false,
+            "message": "River levels on the Chew Stoke Stream at Chew Stoke, Winford Brook at Chew Magna and River Chew at Compton Dando have peaked and are now falling following last night's rainfall.\n\nFurther rainfall is forecast on overnight on Sunday  and into Monday morning. River levels  are expected to rise on Monday morning in response to that rainfall.",
+            "severity": "Flood Alert",
+            "severityLevel": 3,
+            "timeMessageChanged": "2016-11-20T11:51:00",
+            "timeRaised": "2016-11-20T11:51:00",
+            "timeSeverityChanged": "2016-11-19T19:18:00"
+        },
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98637",
+            "description": "South East Somerset Rivers, Upper reaches",
+            "eaAreaName": "North Wessex",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFTSES",
+                "county": "Somerset, Dorset",
+                "notation": "112WAFTSES",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFTSES/polygon",
+                "riverOrSea": "River Yeo, River Cam, River Wriggle"
+            },
+            "floodAreaID": "112WAFTSES",
+            "isTidal": false,
+            "message": "The rainfall is forecast to continue until about 05:00 am on 20/11/2016 with another 10 mm forecast.\n\nRiver levels on the River Yeo at Sherborne Lake, River Cam at Weston Bampfylde, Stoford and Barwick Streams at Stoford are rising slowly however, the River Wriggle at Chetnole is rising more rapidly and is forecast to peak below the Flood Warning threshold around 05:00 am on Sunday morning.",
+            "severity": "Flood Alert",
+            "severityLevel": 3,
+            "timeMessageChanged": "2016-11-20T01:55:00",
+            "timeRaised": "2016-11-20T01:55:00",
+            "timeSeverityChanged": "2016-11-20T01:55:00"
+        },
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98644",
+            "description": "River Barle from Simonsbath to Brushford, including Withypool",
+            "eaAreaName": "Devon",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/113FWF2G2A",
+                "county": "Devon, Somerset",
+                "notation": "113FWF2G2A",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/113FWF2G2A/polygon",
+                "riverOrSea": "River Barle"
+            },
+            "floodAreaID": "113FWF2G2A",
+            "isTidal": false,
+            "message": "Heavier rain then expected has passed through the area since 5PM Saturday. The rain intensified from 9PM, and will continue to be heavy until 4am Sunday Morning. Properties at New Bridge and Mill Bridge are at risk from flooding\n\nThe rain should clear the area by 7AM Sunday Morning, with no significant rainfall until late Sunday Evening. The Environment Agency will monitor the situation and update when required.\nFlooding is expected from 2am until Sunday Morning",
+            "severity": "Flood Warning",
+            "severityLevel": 2,
+            "timeMessageChanged": "2016-11-20T02:39:00",
+            "timeRaised": "2016-11-20T02:39:00",
+            "timeSeverityChanged": "2016-11-20T02:39:00"
+        },
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98646",
+            "description": "River Exe (Upper) from Exford to Exebridge, including Winsford and Bridgetown",
+            "eaAreaName": "Devon",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/113FWF2G3A",
+                "county": "Devon, Somerset",
+                "notation": "113FWF2G3A",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/113FWF2G3A/polygon",
+                "riverOrSea": "River Exe"
+            },
+            "floodAreaID": "113FWF2G3A",
+            "isTidal": false,
+            "message": "Following the overnight rain, the river levels are now dropping, however we expect further heavy rainfall on Sunday night into Monday morning which may trigger further flood warnings. Environment Agency staff will continue to monitor the situation and issue further updates as necessary.",
+            "severity": "Warning no longer in force",
+            "severityLevel": 4,
+            "timeMessageChanged": "2016-11-20T12:30:00",
+            "timeRaised": "2016-11-20T12:30:00",
+            "timeSeverityChanged": "2016-11-20T12:30:00"
+        },
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98654",
+            "description": "Washford River, riverside properties from Kingsbridge to Lower Roadwater",
+            "eaAreaName": "North Wessex",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112FWFWAS10A",
+                "county": "Somerset",
+                "notation": "112FWFWAS10A",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112FWFWAS10A/polygon",
+                "riverOrSea": "Washford River"
+            },
+            "floodAreaID": "112FWFWAS10A",
+            "isTidal": false,
+            "message": "The rainfall is forecast to continue until about 05:00 am today 20/11/2016 with another 10 mm forecast before Storm Angus has passed through the area.\n\nRiver levels on the Washford River are forecast to peak at 05:00 am at 0.8 m on the Beggearn Huish gauge.  Low lying properties in Tacker Street, upstream of Roadwater are at risk of flooding above a gauge level of 0.65 m.",
+            "severity": "Flood Warning",
+            "severityLevel": 2,
+            "timeMessageChanged": "2016-11-20T03:31:00",
+            "timeRaised": "2016-11-20T03:31:00",
+            "timeSeverityChanged": "2016-11-20T03:31:00"
+        },
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98663",
+            "description": "River Tone Catchment",
+            "eaAreaName": "North Wessex",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFRTC",
+                "county": "Somerset",
+                "notation": "112WAFRTC",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFRTC/polygon",
+                "riverOrSea": "Hillfarrance Brook, Halsewater Stream, River Tone"
+            },
+            "floodAreaID": "112WAFRTC",
+            "isTidal": false,
+            "message": "The rainfall is forecast to continue until about 05:00 am on Sunday 20/11/2016 with another 10 mm expected before Storm Angus has passed through the area.\n\nRiver levels on the River Tone at Greenham, River Tone at Bishops Hull, River Tone at Taunton, Hillfarrance Brook at Milverton and Halsewater Stream at Halsewater are rising slowly.  However, the River Tone between Waterrow and Taunton is rising more rapidly and is currently forecast to peak about 08:00 this morning just below the Flood Warning threshold for this stretch of the river.",
+            "severity": "Flood Alert",
+            "severityLevel": 3,
+            "timeMessageChanged": "2016-11-20T04:19:00",
+            "timeRaised": "2016-11-20T04:19:00",
+            "timeSeverityChanged": "2016-11-20T04:19:00"
+        },
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98681",
+            "description": "North Somerset Area",
+            "eaAreaName": "North Wessex",
+            "eaRegionName": "South West",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFTNSA",
+                "county": "Somerset",
+                "notation": "112WAFTNSA",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/112WAFTNSA/polygon",
+                "riverOrSea": "Congresbury Yeo, Cheddar Yeo, River Axe, River Banwell"
+            },
+            "floodAreaID": "112WAFTNSA",
+            "isTidal": false,
+            "message": "Although some 25 mm of rainfall has fallen over the last 24 hours, Storm Angus has generally passed out of the North Somerset area.\n\nRiver levels on the Congresbury Yeo at Iwood are rising and forecast to peak at 12:30 pm today Sunday  20/11/2016.",
+            "severity": "Flood Alert",
+            "severityLevel": 3,
+            "timeMessageChanged": "2016-11-20T08:46:00",
+            "timeRaised": "2016-11-20T08:46:00",
+            "timeSeverityChanged": "2016-11-20T08:46:00"
+        }
+    ]
+}
