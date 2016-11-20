@@ -1,0 +1,13 @@
+{
+    "intents": [
+        {
+            "intent": "FloodAlertIntent",
+            "slots": [
+                {
+                    "name": "County",
+                    "type": "UK_COUNTY"
+                }
+            ]
+        }
+    ]
+}
