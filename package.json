@@ -4,7 +4,8 @@
   "description": "Alexa Skill - UK Flood Warnings",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint test/"
   },
   "author": "Alan Gorton",
   "license": "ISC",

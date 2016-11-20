@@ -1,36 +1,34 @@
 'use strict';
 
+/*global describe */
+/*global it */
+
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
-const sinon = require('sinon');
  
 chai.use(chaiAsPromised);
 chai.should();
 
-const JsonService = require('../src/json-service.js')
-
-// should fetch from URL
-// should reject when request error
+const JsonService = require('../src/json-service.js');
 
 describe('JsonService', () => {
     describe('#get()', () => {
         it('should fetch from URL', (done) => {
             // arrange
-            const expectedUrl = 'http://example.com'; 
+            const expectedUrl = 'https://example.com'; 
             let actualUrl = null; 
-
-            const options = {
-                url: expectedUrl,
-                fetch: url => Promise.resolve((actualUrl = url, response))
-            };
 
             const response = {
                 json: value => value
             };
 
+            const options = {
+                fetch: url => Promise.resolve((actualUrl = url, response))
+            };
+
             // act
             const service = new JsonService(options);
-            const promise = service.get();
+            const promise = service.get(expectedUrl);
 
             // assert
             promise.should.eventually.be.fulfilled.then(() => {
@@ -40,14 +38,14 @@ describe('JsonService', () => {
         
         it('should convert raw response to JSON', () => {
             // arrange
-            const options = {
-                fetch: () => Promise.resolve(response)
-            };
-
             const expectedValue = 42;
 
             const response = {
-                json: value => expectedValue
+                json: () => expectedValue
+            };
+
+            const options = {
+                fetch: () => Promise.resolve(response)
             };
 
             // act
@@ -60,8 +58,10 @@ describe('JsonService', () => {
 
         it('should parse converted response', () => {
             // arrange
+            const initialValue = 42;
+
             const response = {
-                json: value => initialValue
+                json: () => initialValue
             };
 
             const options = {
@@ -69,7 +69,6 @@ describe('JsonService', () => {
                 parse: value => value * 2
             };
 
-            const initialValue = 42;
             const expectedValue = options.parse(initialValue);
 
             // act
@@ -82,25 +81,42 @@ describe('JsonService', () => {
 
         it('should resolve response', () => {
             // arrange
+            const expectedValue = 42;
+
             const response = {
-                json: value => initialValue
+                json: () => expectedValue
             };
 
             const options = {
                 fetch: () => Promise.resolve(response)
             };
 
-            const initialValue = 42;
-            const expectedValue = initialValue + 1;
-
-            const resolve = value => expectedValue; 
-
             // act
             const service = new JsonService(options);
-            const promise = service.get(resolve);
+            const promise = service
+                .get()
+                .then(value => value);
 
             // assert
             return promise.should.eventually.equal(expectedValue);
+        });
+
+        it('should reject when fetch fails', () => {
+            // arrange
+            const expectedError = new Error('Something wonderful happened.');
+
+            const options = {
+                fetch: () => {
+                    throw expectedError;
+                }
+            };
+
+            // act
+            const service = new JsonService(options);
+            const promise = service.get();
+
+            // assert
+            return promise.should.be.rejectedWith(expectedError);
         });
     });
 });
