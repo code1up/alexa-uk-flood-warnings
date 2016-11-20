@@ -52,7 +52,7 @@ describe('SlotModel', () => {
             should.not.exist(actualValue);
         });
 
-        it('should always no tells', () => {
+        it('should always return no tells', () => {
             // arrange
             const model = new SlotModel(); 
 
