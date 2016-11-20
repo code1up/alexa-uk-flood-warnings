@@ -10,7 +10,7 @@ const CountySlotModel = require('../src/county-slot-model.js');
 
 describe('CountySlotModel', () => {
     describe('#understood()', () => {
-        it('should understand county when slot value is set', () => {
+        it('should be understood when county slot value is set', () => {
             // arrange
             const expectedValue = 'Lancashire';
 
@@ -27,7 +27,7 @@ describe('CountySlotModel', () => {
             expect(understood).to.be.true;
         });
 
-        it('should not understand county when slot value is not set', () => {
+        it('should not be understood when county slot value is not set', () => {
             // arrange
             const model = new CountySlotModel(); 
 
@@ -37,7 +37,9 @@ describe('CountySlotModel', () => {
             // assert
             expect(understood).to.be.false;
         });
+    });
 
+    describe('#tells()', () => {
         it('should return no tells when county is understood', () => {
             // arrange
             const slot = {
