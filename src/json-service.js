@@ -3,12 +3,11 @@
 const _fetch = require('node-fetch');
 const _passthrough = value => value;
 
-function JsonService({
-    fetch = _fetch,
-    parse = _passthrough
-}) {
-    this._fetch = fetch;
-    this._parse = parse;
+function JsonService(options) {
+    options = options || {};
+
+    this._fetch = options.fetch || _fetch;
+    this._parse = options.parse || _passthrough;
 }
 
 JsonService.prototype.get = function get(url) {
