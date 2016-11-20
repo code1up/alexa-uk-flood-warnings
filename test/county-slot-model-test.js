@@ -4,7 +4,7 @@
 /*global it */
 
 const chai = require('chai');
-const should = chai.should();
+const expect = chai.expect;
 
 const CountySlotModel = require('../src/county-slot-model.js');
 
@@ -24,7 +24,7 @@ describe('CountySlotModel', () => {
             const understood = model.understood();
 
             // assert
-            understood.should.be.true;
+            expect(understood).to.be.true;
         });
 
         it('should not understand county when slot value is not set', () => {
@@ -35,7 +35,7 @@ describe('CountySlotModel', () => {
             const understood = model.understood();
 
             // assert
-            understood.should.be.false;
+            expect(understood).to.be.false;
         });
 
         it('should return no tells when county is understood', () => {
@@ -50,7 +50,7 @@ describe('CountySlotModel', () => {
             const tells = model.tells();
 
             // assert
-            tells.should.have.length(0);
+            expect(tells).to.have.length(0);
         });
 
         it('should return one tell when county is not understood', () => {
@@ -65,7 +65,8 @@ describe('CountySlotModel', () => {
             const tells = model.tells();
 
             // assert
-            tells.should.have.length(1);
+            expect(tells).to.have.length(1);
+            expect(tells[0]).to.be.a('string').and.not.be.empty;
         });
     });
 });
