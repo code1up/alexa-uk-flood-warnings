@@ -13,7 +13,7 @@ SpeechModel.prototype.floodWarningsInCounty = function (county, riversOrSeas) {
     }
 
     if (riversOrSeas.length === 1) {
-        return `There is currently 1 flood alert in ${county} for the ${riversOrSeas[0]}`;
+        return `There is currently 1 flood alert in ${county} for the ${riversOrSeas[0]}.`;
     }
 
     let text = '';
@@ -25,13 +25,11 @@ SpeechModel.prototype.floodWarningsInCounty = function (county, riversOrSeas) {
         text += riverOrSea;
 
         if (remaining === 0) {
-            // TODO: endsWith
-            // text += '.';
+            text += '.';
         } else if (remaining === 1) {
             text += ' and ';
         } else {
-            // TODO: more than two alerts
-            // text += ', ';
+            text += ', ';
         }
     });
 
