@@ -3,6 +3,26 @@
 function SpeechModel() {
 }
 
+function _toCommaSeparatedList(arr) {
+    let list = '';
+
+    arr.forEach(function (each, i) {
+        var remaining = (arr.length - (i + 1));
+
+        list += each;
+
+        if (remaining === 0) {
+            list += '.';
+        } else if (remaining === 1) {
+            list += ' and ';
+        } else {
+            list += ', ';
+        }
+    });
+
+    return list;
+}
+
 SpeechModel.prototype.didNotUnderstandCounty = function () {
     return 'Looks like I don\`t know or didn\'t hear the county you said. Please try again.';
 };
@@ -16,26 +36,11 @@ SpeechModel.prototype.floodWarningsInCounty = function (county, riversOrSeas) {
         return `There is currently 1 flood alert in ${county} for the ${riversOrSeas[0]}.`;
     }
 
-    let text = '';
-
-    // TODO: use _.reduce
-    riversOrSeas.forEach(function (riverOrSea, i) {
-        var remaining = (riversOrSeas.length - (i + 1));
-
-        text += riverOrSea;
-
-        if (remaining === 0) {
-            text += '.';
-        } else if (remaining === 1) {
-            text += ' and ';
-        } else {
-            text += ', ';
-        }
-    });
+    let list = _toCommaSeparatedList(riversOrSeas);
 
     return [
         `There are currently ${riversOrSeas.length} flood alerts in ${county}`,
-        `for the following rivers or seas: ${text}`
+        `for the following rivers or seas: ${list}`
     ].join(' ');
 };
 
