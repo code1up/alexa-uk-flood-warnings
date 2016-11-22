@@ -45,6 +45,7 @@ SpeechModel.prototype.floodWarningsInCounty = function (county, riversOrSeas) {
 };
 
 SpeechModel.prototype.somethingWentWrong = function () {
+    return `Something went wrong. Please try again.`;
 };
 
 module.exports = SpeechModel;

@@ -95,4 +95,17 @@ describe('SpeechModel', () => {
             expect(content).to.be.equal(expectedContent);
         });
     });
+
+    describe('#somethingWentWrong()', () => {
+        it('should return content', () => {
+            // arrange
+            const model = new SpeechModel(); 
+
+            // act
+            const content = model.somethingWentWrong();
+
+            // assert
+            expect(content).to.be.a('string').and.not.be.empty;
+        });
+    });
 });
