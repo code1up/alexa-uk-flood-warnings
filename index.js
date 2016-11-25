@@ -45,7 +45,7 @@ UkFloodMonitorSkill.prototype = Object.create(AlexaSkill.prototype);
 UkFloodMonitorSkill.prototype.eventHandlers.onLaunch = floodMonitorIntent;
 
 UkFloodMonitorSkill.prototype.intentHandlers = {
-    FloodAlertsIntent: floodMonitorIntent
+    FloodMonitorIntent: floodMonitorIntent
 };
 
 exports.handler = function (event, context) {
