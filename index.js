@@ -56,17 +56,3 @@ exports.handler = function (event, context) {
 
     service.execute(event, context);
 };
-
-const intent = {
-    slots: {
-        County: {
-            value: 'Yorkshire' 
-        }
-    }
-};
-
-const response = {
-    tell: console.log
-};
-
-floodMonitorIntent(intent, null, response);
