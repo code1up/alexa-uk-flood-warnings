@@ -1,45 +1,55 @@
-/*
 'use strict';
 
-const fetch = fetch || require('node-fetch');
+/* eslint no-console: "off" */
 
-const APP_ID = 'amzn1.ask.skill.XXX';
+const JsonService = require('json-service');
+const FloodAlertParser = require('flood-alert-parser');
+const CountySlotModel = require('county-slot-model');
+const SpeechModel = require('speech-model');
+
+const APP_ID = 'amzn1.ask.skill.aff3dc46-c61e-41df-9842-afd10ef2dc46';
 const AlexaSkill = require('../amazon/AlexaSkill');
 
-const UkFloodAlertSkill = function () {
+const UkFloodMonitorSkill = function () {
     AlexaSkill.call(this, APP_ID);
 };
 
-const floodAlertsIntent = function (intent, session, response) {
-    const countySlot = intent.slots.County;
+const floodMonitorIntent = function (intent, session, response) {
+    const countyModel = new CountySlotModel(intent.slots.County);
 
-    if (!countySlot) {
-        response.tell('Please say the county you want to hear flood warnings for.');
+    if (!countyModel.understood()) {
+        countyModel.tells().forEach(response.tell);
         return;
     }
 
-    const county = intent.slots.County.value;
-
-    if (!county) {
-        response.tell('Looks like I don\`t know the county you said, please try again.');
-        return;
-    }
-
-    getCountyFloodWarnings(county, function (text) {
-        response.tell(text);
+    const service = new JsonService({
+        parser: new FloodAlertParser()
     });
+
+    const url = `https://environment.data.gov.uk/flood-monitoring/id/floods?county=${countyModel.value()}`;
+
+    service
+        .get(url)
+        .then(riversOrSeas => {
+            const speechModel = new SpeechModel();
+            const warnings = speechModel.floodWarningsInCounty(countyModel.value(), riversOrSeas);
+
+            response.tell(warnings);
+        })
+        .catch(error => {
+            console.log(error);
+        });
 };
 
-UkFloodAlertSkill.prototype = Object.create(AlexaSkill.prototype);
-UkFloodAlertSkill.prototype.eventHandlers.onLaunch = floodAlertsIntent;
+UkFloodMonitorSkill.prototype = Object.create(AlexaSkill.prototype);
+UkFloodMonitorSkill.prototype.eventHandlers.onLaunch = floodMonitorIntent;
 
-UkFloodAlertSkill.prototype.intentHandlers = {
-    FloodAlertsIntent: floodAlertsIntent
+UkFloodMonitorSkill.prototype.intentHandlers = {
+    FloodAlertsIntent: floodMonitorIntent
 };
 
 exports.handler = function (event, context) {
-    const service = new UkFloodAlertSkill();
+    const service = new UkFloodMonitorSkill();
 
     service.execute(event, context);
 };
-*/
