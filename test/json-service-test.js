@@ -1,7 +1,7 @@
 'use strict';
 
-/*global describe */
-/*global it */
+/* global describe */
+/* global it */
 
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
