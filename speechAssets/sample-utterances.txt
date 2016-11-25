@@ -1,2 +1,2 @@
-FloodAlertIntent warnings for {County}
-FloodAlertIntent alerts for {County}
+FloodMonitorIntent warnings for {County}
+FloodMonitorIntent alerts for {County}

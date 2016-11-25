@@ -1,7 +1,7 @@
 {
     "intents": [
         {
-            "intent": "FloodAlertIntent",
+            "intent": "FloodMonitorIntent",
             "slots": [
                 {
                     "name": "County",
