@@ -1,7 +1,5 @@
 'use strict';
 
-/* eslint no-console: "off" */
-
 const JsonService = require('./src/json-service');
 const FloodAlertParser = require('./src/flood-alert-parser');
 const CountySlotModel = require('./src/county-slot-model');
