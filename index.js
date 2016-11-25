@@ -2,13 +2,13 @@
 
 /* eslint no-console: "off" */
 
-const JsonService = require('json-service');
-const FloodAlertParser = require('flood-alert-parser');
-const CountySlotModel = require('county-slot-model');
-const SpeechModel = require('speech-model');
+const JsonService = require('./src/json-service');
+const FloodAlertParser = require('./src/flood-alert-parser');
+const CountySlotModel = require('./src/county-slot-model');
+const SpeechModel = require('./src/speech-model');
 
 const APP_ID = 'amzn1.ask.skill.aff3dc46-c61e-41df-9842-afd10ef2dc46';
-const AlexaSkill = require('../amazon/AlexaSkill');
+const AlexaSkill = require('./amazon/AlexaSkill');
 
 const UkFloodMonitorSkill = function () {
     AlexaSkill.call(this, APP_ID);
@@ -22,8 +22,10 @@ const floodMonitorIntent = function (intent, session, response) {
         return;
     }
 
+    const parser = new FloodAlertParser(); 
+
     const service = new JsonService({
-        parser: new FloodAlertParser()
+        parse: parser.parse
     });
 
     const url = `https://environment.data.gov.uk/flood-monitoring/id/floods?county=${countyModel.value()}`;
@@ -37,7 +39,7 @@ const floodMonitorIntent = function (intent, session, response) {
             response.tell(warnings);
         })
         .catch(error => {
-            console.log(error);
+            response.tell(error);
         });
 };
 
@@ -49,7 +51,22 @@ UkFloodMonitorSkill.prototype.intentHandlers = {
 };
 
 exports.handler = function (event, context) {
-    const service = new UkFloodMonitorSkill();
+    const service = new UkFloodMonitorSkill(
+    );
 
     service.execute(event, context);
 };
+
+const intent = {
+    slots: {
+        County: {
+            value: 'Yorkshire' 
+        }
+    }
+};
+
+const response = {
+    tell: console.log
+};
+
+floodMonitorIntent(intent, null, response);
