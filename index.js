@@ -16,7 +16,7 @@ const floodMonitorIntent = function (intent, session, response) {
     const countyModel = new CountySlotModel(intent.slots && intent.slots.County);
 
     if (!countyModel.understood()) {
-        countyModel.tells().forEach(response.tell);
+        countyModel.tells().forEach(response.tell.bind(this));
         return;
     }
 
