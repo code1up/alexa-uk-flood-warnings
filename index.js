@@ -13,7 +13,7 @@ const UkFloodMonitorSkill = function () {
 };
 
 const floodMonitorIntent = function (intent, session, response) {
-    const countyModel = new CountySlotModel(intent.slots.County);
+    const countyModel = new CountySlotModel(intent.slots && intent.slots.County);
 
     if (!countyModel.understood()) {
         countyModel.tells().forEach(response.tell);
