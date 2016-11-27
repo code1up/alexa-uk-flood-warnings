@@ -1,2 +1,19 @@
-FloodMonitorIntent warnings for {County}
-FloodMonitorIntent alerts for {County}
+FloodMonitorIntent {County}
+FloodMonitorIntent anything in {County}
+FloodMonitorIntent what's happening in {County}
+
+FloodMonitorIntent about {County}
+FloodMonitorIntent about warnings in {County}
+
+FloodMonitorIntent warnings in {County}
+
+FloodMonitorIntent any warnings in {County}
+FloodMonitorIntent are there any warnings in {County}
+
+FloodMonitorIntent are there any warnings currently in {County}
+FloodMonitorIntent any there currently any warnings in {County}
+
+FloodMonitorIntent are there any active warnings in {County}
+FloodMonitorIntent are there any warnings active in {County}
+
+FloodMonitorIntent are there any current warnings in {County}
