@@ -9,10 +9,12 @@ const CountySlotModel = function (slot) {
 
 CountySlotModel.prototype = Object.create(SlotModel.prototype);
 
+/*
 CountySlotModel.prototype.understood = function () {
     // TODO: move simplest case to SlotModel
     return !!this.value();
 };
+*/
 
 CountySlotModel.prototype.tells = function () {
     if (this.understood()) {
