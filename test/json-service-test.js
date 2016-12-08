@@ -4,6 +4,8 @@
 /* global it */
 
 const chai = require('chai');
+const expect = chai.expect;
+
 const chaiAsPromised = require('chai-as-promised');
  
 chai.use(chaiAsPromised);
@@ -31,8 +33,8 @@ describe('JsonService', () => {
             const promise = service.get(expectedUrl);
 
             // assert
-            promise.should.eventually.be.fulfilled.then(() => {
-                actualUrl.should.equal(expectedUrl);
+            expect(promise).to.eventually.be.fulfilled.then(() => {
+                expect(actualUrl).to.equal(expectedUrl);
             }).should.notify(done);
         });
         
@@ -53,7 +55,7 @@ describe('JsonService', () => {
             const promise = service.get();
 
             // assert
-            return promise.should.eventually.equal(expectedValue);
+            return expect(promise).to.eventually.equal(expectedValue);
         });
 
         it('should parse converted response', () => {
@@ -76,7 +78,7 @@ describe('JsonService', () => {
             const promise = service.get();
 
             // assert
-            return promise.should.eventually.equal(expectedValue);
+            return expect(promise).to.eventually.equal(expectedValue);
         });
 
         it('should resolve response', () => {
@@ -98,7 +100,7 @@ describe('JsonService', () => {
                 .then(value => value);
 
             // assert
-            return promise.should.eventually.equal(expectedValue);
+            return expect(promise).to.eventually.equal(expectedValue);
         });
 
         it('should reject when fetch fails', () => {
@@ -116,7 +118,7 @@ describe('JsonService', () => {
             const promise = service.get();
 
             // assert
-            return promise.should.be.rejectedWith(expectedError);
+            return expect(promise).to.be.rejectedWith(expectedError);
         });
     });
 });
