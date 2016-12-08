@@ -99,5 +99,18 @@ describe('FloodAlertParser', () => {
             // assert
             expect(alerts).to.deep.equal(expectedRiverOrSea);
         });
+
+        it('should parse severity level and exclude flood warnings no longer in force', () => {
+            // arrange
+            const json = fs.readFileSync('./test/data/one-flood-alert-no-longer-in-force.json');
+            const response = JSON.parse(json);
+
+            // act
+            const parser = new FloodAlertParser();
+            const alerts = parser.parse(response);
+
+            // assert
+            expect(alerts).to.have.length(0);
+        });
     });
 });
