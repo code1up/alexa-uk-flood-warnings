@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const counties = [
     'Anglesey',
     'Angus',
@@ -94,7 +96,7 @@ const CountiesModel = function () {
 };
 
 CountiesModel.prototype.isCounty = function (county) {
-    return counties.includes(county);
+    return _.includes(counties, county);
 };
 
 module.exports = CountiesModel;
