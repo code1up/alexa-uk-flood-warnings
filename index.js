@@ -16,7 +16,10 @@ const floodMonitorIntent = function (intent, session, response) {
     const countyModel = new CountySlotModel(intent.slots && intent.slots.County);
 
     if (!countyModel.understood()) {
-        countyModel.tells().forEach(response.tell, this);
+        countyModel.tells().forEach(tell => {
+            response.tell(tell);            
+        });
+
         return;
     }
 
@@ -28,16 +31,17 @@ const floodMonitorIntent = function (intent, session, response) {
 
     const url = `https://environment.data.gov.uk/flood-monitoring/id/floods?county=${countyModel.value()}`;
 
+    const speechModel = new SpeechModel();
+
     service
         .get(url)
         .then(riversOrSeas => {
-            const speechModel = new SpeechModel();
             const warnings = speechModel.floodWarningsInCounty(countyModel.value(), riversOrSeas);
 
             response.tell(warnings);
         })
-        .catch(error => {
-            response.tell(error);
+        .catch(() => {
+            response.tell(speechModel.somethingWentWrong());
         });
 };
 
@@ -49,8 +53,7 @@ UkFloodMonitorSkill.prototype.intentHandlers = {
 };
 
 exports.handler = function (event, context) {
-    const service = new UkFloodMonitorSkill(
-    );
+    const service = new UkFloodMonitorSkill();
 
     service.execute(event, context);
 };

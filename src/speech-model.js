@@ -24,7 +24,7 @@ function _toCommaSeparatedList(arr) {
 }
 
 SpeechModel.prototype.didNotUnderstandCounty = function () {
-    return 'Looks like I don\`t know or didn\'t hear the county you said. Please try again.';
+    return 'Looks like I don\'t know or didn\'t hear the county you said. Please try again.';
 };
 
 SpeechModel.prototype.floodWarningsInCounty = function (county, riversOrSeas) {
