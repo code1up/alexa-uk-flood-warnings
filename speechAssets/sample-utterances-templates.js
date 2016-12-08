@@ -8,7 +8,8 @@ const model = {
             '',
             'about',
             'are there',
-            'tell me about'
+            'tell me about',
+            'tell me'
         ],
 
         any: [
@@ -22,26 +23,20 @@ const model = {
             '',
             'active',
             'current',
-            'currently in force',
-            'in force',
-            'live',
-            'now'
+            'live'
         ],
 
         warnings: [
             '',
             'alerts',
             'floods',
-            'issues',
-            'problems',
             'warnings'
         ],
 
         in: [
             '',
             'for',
-            'in',
-            'within'
+            'in'
         ]
     },
 
@@ -99,17 +94,33 @@ const combinations = {
     product: product.apply(null, arrays)
 };
 
-// console.log(combinations);
-console.log(combinations);
-
+// TODO: not very functional
 _.forEach(model.intents, intent => {
     const expressions = getExpressions(intent.template);
 
-    let utterance = intent.template;
+    _.forEach(combinations.product, combination => {
+        let utterance = `${intent.name} ${intent.template}`;
 
+        _.forEach(expressions, expression => {
+            const i = combinations.keys.indexOf(expression.name);
+
+            utterance = utterance.replace(expression.tag, combination[i]);
+        });
+
+        utterance = utterance
+            .replace(/\s{2,}/g, ' ')
+            .trim();
+
+        console.log(utterance);
+    });
+
+    /*
     _.forEach(expressions, expression => {
         _.forEach(model.synonyms[expression.name], synonym => {
             utterance = utterance.replace(expression.tag, synonym);
+            
+            console.log(expression.name);
         });
     });
+    */
 });
