@@ -11,12 +11,10 @@ const SpeechModel = require('../src/speech-model.js');
 
 describe('CountySlotModel', () => {
     describe('#understood()', () => {
-        it('should be understood when county slot value is set', () => {
+        it('should be understood when county slot value is set to a valid county', () => {
             // arrange
-            const expectedValue = 'Lancashire';
-
             const slot = {
-                value: expectedValue
+                value: 'Lancashire'
             };
 
             const model = new CountySlotModel(slot);
@@ -26,6 +24,21 @@ describe('CountySlotModel', () => {
 
             // assert
             expect(understood).to.be.true;
+        });
+
+        it('should be understood when county slot value is set to an invalid county', () => {
+            // arrange
+            const slot = {
+                value: 'Narniashire'
+            };
+
+            const model = new CountySlotModel(slot);
+
+            // act
+            const understood = model.understood();
+
+            // assert
+            expect(understood).to.be.false;
         });
 
         it('should not be understood when county slot value is not set', () => {
