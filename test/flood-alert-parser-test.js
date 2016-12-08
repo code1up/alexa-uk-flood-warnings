@@ -6,10 +6,7 @@
 const fs = require('fs');
 
 const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
- 
-chai.use(chaiAsPromised);
-chai.should();
+const expect = chai.expect;
 
 const FloodAlertParser = require('../src/flood-alert-parser.js');
 
@@ -25,7 +22,7 @@ describe('FloodAlertParser', () => {
             const alerts = parser.parse(response);
 
             // assert
-            alerts.should.have.length(0);
+            expect(alerts).to.have.length(0);
         });
 
         it('should parse one flood alert for one river or sea', () => {
@@ -42,7 +39,7 @@ describe('FloodAlertParser', () => {
             const alerts = parser.parse(response);
 
             // assert
-            alerts.should.deep.equal(expectedRiverOrSea);
+            expect(alerts).to.deep.equal(expectedRiverOrSea);
         });
 
         it('should parse one flood alert for multiple rivers or seas', () => {
@@ -60,7 +57,7 @@ describe('FloodAlertParser', () => {
             const alerts = parser.parse(response);
 
             // assert
-            alerts.should.deep.equal(expectedRiverOrSea);
+            expect(alerts).to.deep.equal(expectedRiverOrSea);
         });
 
         it('should parse multiple flood alerts for multiple duplicate rivers or seas', () => {
@@ -100,7 +97,7 @@ describe('FloodAlertParser', () => {
             const alerts = parser.parse(response);
 
             // assert
-            alerts.should.deep.equal(expectedRiverOrSea);
+            expect(alerts).to.deep.equal(expectedRiverOrSea);
         });
     });
 });
