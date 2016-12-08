@@ -1,0 +1,39 @@
+{
+    "@context": "http://environment.data.gov.uk/flood-monitoring/meta/context.jsonld",
+    "meta": {
+        "publisher": "Environment Agency",
+        "licence": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "documentation": "http://environment.data.gov.uk/flood-monitoring/doc/reference",
+        "version": "0.7",
+        "comment": "Status: Beta service",
+        "hasFormat": [
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.csv?county=yorkshire",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.rdf?county=yorkshire",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.ttl?county=yorkshire",
+            "http://environment.data.gov.uk/flood-monitoring/id/floods.html?county=yorkshire"
+        ]
+    },
+    "items": [
+        {
+            "@id": "http://environment.data.gov.uk/flood-monitoring/id/floods/98484",
+            "description": "North Sea Coast at Bridlington",
+            "eaAreaName": "Yorkshire",
+            "eaRegionName": "North East",
+            "floodArea": {
+                "@id": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/122WAC954",
+                "county": "East Riding of Yorkshire",
+                "notation": "122WAC954",
+                "polygon": "http://environment.data.gov.uk/flood-monitoring/id/floodAreas/122WAC954/polygon",
+                "riverOrSea": "North Sea"
+            },
+            "floodAreaID": "122WAC954",
+            "isTidal": true,
+            "message": "High tides, overtopping and wind-blown spray are expected to cause localised flooding at the north end of the harbour and Bridlington South Pier and Spa between 09:30 and 10:45 and between18:30 and 23:00 on Sunday 20 November. We will continue to monitor the situation and provide further updates as necessary.",
+            "severity": "Flood Alert",
+            "severityLevel": 4,
+            "timeMessageChanged": "2016-11-19T10:47:00",
+            "timeRaised": "2016-11-19T10:47:00",
+            "timeSeverityChanged": "2016-11-13T18:49:00"
+        }
+    ]
+}
