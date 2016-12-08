@@ -4,19 +4,16 @@ const _ = require('lodash');
 
 const model = {
     synonyms: {
-        ask: [
+        preamble: [
             '',
             'about',
             'are there',
-            'tell me about',
-            'tell me'
+            'tell me about'
         ],
 
         any: [
             '',
-            'any',
-            'some',
-            'all'
+            'any'
         ],
 
         active: [
@@ -43,7 +40,7 @@ const model = {
     intents: [
         {
             name: 'FloodMonitorIntent',
-            template: '${ask} ${any} ${active} ${warnings} ${in} {County}'
+            template: '${preamble} ${any} ${active} ${warnings} ${in} {County}'
         }
     ]
 };
@@ -64,19 +61,19 @@ function getExpressions(s) {
 
     const re = /\$\{\s*(\w+)\s*\}/g;
 
-    let m = null;
+    let match = null;
 
     do {
-        m = re.exec(s);
+        match = re.exec(s);
 
-        if (m) {
+        if (match) {
             expressions.push({
-                tag: m[0],
-                name: m[1],
-                index: m.index
+                tag: match[0],
+                name: match[1],
+                index: match.index
             });
         }
-    } while (m);
+    } while (match);
 
     return expressions;
 }
